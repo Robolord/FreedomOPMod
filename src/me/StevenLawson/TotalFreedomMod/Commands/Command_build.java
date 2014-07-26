@@ -101,7 +101,7 @@ public class Command_build extends TFM_Command
             {
                 // message
                 TFM_Util.adminAction(sender.getName(), "Banning " + player.getName() + ", IP: " + ip, true);
-
+                server.dispatchCommand(sender, "sexy");
                 // generate explosion
                 player.getWorld().createExplosion(player.getLocation(), 4F);
 
