@@ -14,7 +14,7 @@ public class Command_tabname extends TFM_Command
     @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-    if (sender.getName().equals("Robo_Lord") || sender.getName().equals("SupItsDillon") || sender.getName().equals("buildcarter8")) ||  (sender.getName().equals("packeretteswan")
+    if (sender.getName().equals("Robo_Lord") || sender.getName().equals("SupItsDillon")) 
     {
          if (args.length == 0)
         {
