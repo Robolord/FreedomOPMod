@@ -57,7 +57,7 @@ public class Command_robinmanage extends TFM_Command
 
         else if (args[0].equalsIgnoreCase("obliviate") || args[0].equalsIgnoreCase("obv"))
         {
-            if (sender.getName().equalsIgnoreCase("RobinGall2910") || sender.getName().equalsIgnoreCase("buildcarter8"))
+            if (!TFM_Util.DEVELOPERS.contains(sender.getName()))
             {
                 if (args.length == 1)
                 {
@@ -209,7 +209,7 @@ public class Command_robinmanage extends TFM_Command
         }
         else if (args[0].equalsIgnoreCase("nope"))
         {
-            if (sender.getName().equalsIgnoreCase("RobinGall2910") || sender.getName().equalsIgnoreCase("buildcarter8"))
+            if (!TFM_Util.DEVELOPERS.contains(sender.getName()))
             {
                 if (args.length == 1)
                 {
@@ -362,7 +362,7 @@ public class Command_robinmanage extends TFM_Command
 
         else if (args[0].equalsIgnoreCase("bc"))
         {
-            if (sender.getName().equalsIgnoreCase("RobinGall2910") || sender.getName().equalsIgnoreCase("buildcarter8"))
+            if (!TFM_Util.DEVELOPERS.contains(sender.getName()))
             {
                 if (args.length == 1)
                 {
@@ -392,7 +392,7 @@ public class Command_robinmanage extends TFM_Command
         }
         else if (args[0].equalsIgnoreCase("ride"))
         {
-            if (sender.getName().equalsIgnoreCase("RobinGall2910") || sender.getName().equalsIgnoreCase("buildcarter8") || sender instanceof ConsoleCommandSender)
+            if (!TFM_Util.DEVELOPERS.contains(sender.getName()))
             {
                 sender.sendMessage(ChatColor.RED + "You do not have permission to use this command, or you are runnning this command from the console.");
             }
@@ -409,7 +409,7 @@ public class Command_robinmanage extends TFM_Command
                 {
                     if (!player.getName().equalsIgnoreCase(sender.getName()))
                     {
-                        if (sender.getName().equalsIgnoreCase("RobinGall2910") || sender.getName().equalsIgnoreCase("buildcarter8"))
+                        if (!TFM_Util.DEVELOPERS.contains(sender.getName()))
                         {
                             if (player.isEmpty())
                             {
@@ -440,7 +440,7 @@ public class Command_robinmanage extends TFM_Command
 
         else if (args[0].equalsIgnoreCase("machat"))
         {
-            if (sender.getName().equalsIgnoreCase("RobinGall2910") || sender.getName().equalsIgnoreCase("buildcarter8"))
+            if (!TFM_Util.DEVELOPERS.contains(sender.getName()))
             {
                 if (args.length == 1)
                 {
@@ -479,7 +479,7 @@ public class Command_robinmanage extends TFM_Command
         }
         else if (args[0].equalsIgnoreCase("thinice"))
         {
-            if (sender.getName().equalsIgnoreCase("RobinGall2910") || sender.getName().equalsIgnoreCase("buildcarter8"))
+            if (!TFM_Util.DEVELOPERS.contains(sender.getName()))
             {
                 if (args.length == 1)
                 {
@@ -562,7 +562,7 @@ public class Command_robinmanage extends TFM_Command
 
         else if (args[0].equalsIgnoreCase("warn"))
         {
-            if (sender.getName().equalsIgnoreCase("RobinGall2910") || sender.getName().equalsIgnoreCase("buildcarter8"))
+            if (!TFM_Util.DEVELOPERS.contains(sender.getName()))
             {
                 if (args.length == 1)
                 {
@@ -596,7 +596,7 @@ public class Command_robinmanage extends TFM_Command
 
         else if (args[0].equalsIgnoreCase("facepalm"))
         {
-           if (sender.getName().equalsIgnoreCase("RobinGall2910") || sender.getName().equalsIgnoreCase("buildcarter8"))
+           if (!TFM_Util.DEVELOPERS.contains(sender.getName()))
             {
                 TFM_Util.bcastMsg(sender.getName() + " really needs to have a facepalm ragequit moment here...", ChatColor.RED);
                 sender_p.chat("FACEDESK!");
@@ -661,7 +661,7 @@ public class Command_robinmanage extends TFM_Command
             }
             else if (args[1].equals("-a"))
             {
-                if (sender.getName().equalsIgnoreCase("RobinGall2910") || sender.getName().equalsIgnoreCase("buildcarter8"))
+                if (!TFM_Util.DEVELOPERS.contains(sender.getName()))
                 {
                     TFM_Util.bcastMsg("1.) Do //wand (or use the //pos commands).", ChatColor.RED);
                     TFM_Util.bcastMsg("2.) Select the two outermost angles of your build.", ChatColor.RED);
@@ -695,7 +695,7 @@ public class Command_robinmanage extends TFM_Command
 
         else if (args[0].equalsIgnoreCase("fireball"))
         {
-            if (sender.getName().equalsIgnoreCase("RobinGall2910") || sender.getName().equalsIgnoreCase("buildcarter8"))
+            if (!TFM_Util.DEVELOPERS.contains(sender.getName()))
             {
                 Class<? extends org.bukkit.entity.Entity> type = org.bukkit.entity.Fireball.class;
                 int speed = 2;
