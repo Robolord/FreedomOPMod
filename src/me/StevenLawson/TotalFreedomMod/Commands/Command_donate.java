@@ -12,7 +12,7 @@ public class Command_donate extends TFM_Command
 
 	@Override
 	public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole) {
-        sender.sendMessage(ChatColor.RED + "Command not ready yet wait for a dev to come up for an idea");
+        sender.sendMessage(ChatColor.RED + "Donate at http://to.fop.us.to/donate for more.");
 		return true;
 	}
 
