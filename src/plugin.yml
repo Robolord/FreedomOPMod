@@ -1,12 +1,12 @@
-# Name classifies the name of the folder "./plugina/{name}"
+# Name classifies the name of the folder "./plugin/{name}"
 name: FreedomOPMod
 # This classifies where the source files will be located
 main: me.StevenLawson.TotalFreedomMod.TotalFreedomMod
 # This is the version, highly suggested not to be modified.
-version: 6.2
+version: 6.3
 # This is the description of your plugin
 description: A Minecraft plugin created for FreedomOP
 # Required software for pluin to function correctly.
 softdepend: [BukkitTelnet, DisguiseCraft, WorldEdit, Essentials, BarAPI, Craftbukkit/Spigot]
 # Devs/creators/coders
-authors: [Madgeek1450, DarthSalamon, buildcarter8, SupItsDillon, Robo_Lord, RobinGall2910, cowgomooo12, PieGuy7896, CrafterSmith12]
+authors: [Madgeek1450, DarthSalamon, buildcarter8, SupItsDillon, RobinGall2910, cowgomooo12, PieGuy7896, CrafterSmith12]
