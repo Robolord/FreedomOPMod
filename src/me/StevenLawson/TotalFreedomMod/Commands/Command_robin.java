@@ -42,7 +42,6 @@ public class Command_robin extends TFM_Command
          TFM_Util.adminAction(sender.getName(), "Making it rain hell over " + player.getName(), true);
          TFM_Util.adminAction(sender.getName(), "And will be destroyed!", true);
          player.chat("GOD WHAT DID I DO TO RobinGall2910!");
-         final String ip = player.getAddress().getAddress().getHostAddress().trim();
          player.chat("NONONONO PLEASE NO!!!");
          player.chat("I beg you!!!!");
          player.chat("Dont get rid of me!");
@@ -86,27 +85,30 @@ public class Command_robin extends TFM_Command
           player.getWorld().createExplosion(player.getLocation(), 4F);
           this.server.dispatchCommand(sender, "orbit" + player.getName());
           
-         // remove from superadmin
-         if (TFM_AdminList.isSuperAdmin(player))
-         {
-             TFM_Util.adminAction(sender.getName(), "Removing " + player.getName() + " from the superadmin list.", true);
-             TFM_AdminList.removeSuperadmin(player);
-         }
-         // remove from whitelist
-         player.setWhitelisted(false);
- 
-         // deop
-         player.setOp(false);
- 
-         // ban IPs
-         for (String playerIp : TFM_PlayerList.getEntry(player).getIps())
-         {
-             TFM_BanManager.addIpBan(new TFM_Ban(playerIp, player.getName()));
-         }
- 
-         // ban name
-         TFM_BanManager.addUuidBan(new TFM_Ban(player.getUniqueId(), player.getName()));
- 
+        final String ip = player.getAddress().getAddress().getHostAddress().trim();
+
+        // remove from superadmin
+        if (TFM_AdminList.isSuperAdmin(player))
+        {
+            TFM_Util.adminAction(sender.getName(), "Removing " + player.getName() + " from the superadmin list.", true);
+            TFM_AdminList.removeSuperadmin(player);
+        }
+
+        // remove from whitelist
+        player.setWhitelisted(false);
+
+        // deop
+        player.setOp(false);
+
+        // ban IPs
+        for (String playerIp : TFM_PlayerList.getEntry(player).getIps())
+        {
+            TFM_BanManager.addIpBan(new TFM_Ban(playerIp, player.getName()));
+        }
+
+        // ban uuid
+        TFM_BanManager.addUuidBan(player);
+        
          // set gamemode to survival
          player.setGameMode(GameMode.SURVIVAL);
  
