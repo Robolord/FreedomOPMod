@@ -67,7 +67,7 @@ public class Metrics
     /**
      * The url used to report a server's status
      */
-    private static final String REPORT_URL = "/plugin/TotalFreedomMod"; // TotalFreedomMod
+    private static final String REPORT_URL = "/plugin/FreedomOPMod"; // FreedomOPMod
     /**
      * Interval of time to ping (in minutes)
      */
