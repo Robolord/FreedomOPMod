@@ -70,11 +70,6 @@ public enum TFM_PlayerRank
         {
             return IMPOSTOR;
         }
-        
-        if (DEVELOPERS.contains(sender.getName()))
-        {
-            return DEVELOPER;
-        }
         if (sender.getName().equals("lynxlps"))
         {
             return EXECUTIVE;
@@ -98,6 +93,10 @@ public enum TFM_PlayerRank
         if (sender.getName().equals("aggelosQQ"))
         {
             return AGGELOS;
+        }
+        if (DEVELOPERS.contains(sender.getName()))
+        {
+            return DEVELOPER;
         }
 
 
