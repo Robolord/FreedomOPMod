@@ -1,4 +1,4 @@
-# FreedomOPMod v6.5 Configuration
+# FreedomOPMod v6.6 Configuration
 # By Madgeek And DarthSalamon
 
 # Generic server information
@@ -96,7 +96,7 @@ blocked_commands:
   - 'n:b:/mute:You are required to use "/stfu" instead.'
   - 'n:u:/cb:_'
   - 'n:b:/mail sendall:&4You cannot send mails to everyone!'
-
+  - 'n:b:/ass:&4this command is not currently allowed'
 
   # Superadmin commands
   - 's:b:/deopall:_'
