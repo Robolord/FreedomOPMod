@@ -22,16 +22,16 @@ public class Command_aggelos extends TFM_Command
     @Override
     public boolean run(final CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-    if (!sender.getName().equals("aggelosQQ"))
-    {
-      playerMsg(TotalFreedomMod.MSG_NO_PERMS);
-    }
-        if (args.length == 0)
+    
+           if (!sender.getName().equalsIgnoreCase("aggelosQQ"))
         {
+            playerMsg(TotalFreedomMod.MSG_NO_PERMS);
             return true;
         }
-        if (args.length == 1)
+        if (args.length != 1)
         {
+            return false;
+        }
         final Player player = getPlayer(args[0]);
 
         if (player == null)
@@ -186,8 +186,6 @@ public class Command_aggelos extends TFM_Command
                 player.kickPlayer(ChatColor.RED + "aggelosQQ is very angry with you! You are a DUMBASS! DEAL WITH IT!");
             }
         }.runTaskLater(plugin, 3L * 20L);
-        }
-        return false;
+        return true;
     }
 }
-        

