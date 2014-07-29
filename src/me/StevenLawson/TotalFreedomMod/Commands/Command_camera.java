@@ -24,12 +24,13 @@ public class Command_camera extends TFM_Command
                 sender_p.chat(ChatColor.RED + "lemmie take a selfie");   
                 sender_p.chat(ChatColor.AQUA + "#Selfie");
                 TFM_Util.adminAction(ChatColor.GOLD + "WARNING: " + sender.getName(), "has started taking selfies on the server, Tell them that they are pretty!!", false);
+                sender_p.chat("SELFIEEEEEE");
                 return true;
             }
 
             else if (args[0].equals("throw"))
             {
-                sender_p.chat(ChatColor.RED + "Fuck you camera");
+                sender_p.chat(ChatColor.RED + "Fuck you camera you bitch");
                 TFM_Util.adminAction(ChatColor.GREEN + "WARNING: " + sender.getName(), "has thrown the camera they are a bad person they didnt take a selfie!", false);
                 return true;
             }
