@@ -54,6 +54,7 @@ public class TotalFreedomMod extends JavaPlugin
     public static final String INCORRECT_PSW = "That password is incorrect.";
     public static final String FREEDOMOP_MOD = ChatColor.GRAY + "[" + ChatColor.RED + "FreedomOPMod" + ChatColor.GRAY + "]";
     public static final String FREEDOMOP_MODREPORT = ChatColor.WHITE + "[" + ChatColor.DARK_GREEN + "FreedomOP Report" + ChatColor.WHITE + "]";
+    public static final String FREEDOMOP_MODBROADCAST = ChatColor.GRAY + "[" + ChatColor.RED + "FreedomOPModBroadcast" + ChatColor.GRAY + "]";
     //
     public static String buildNumber = "0";
     public static String buildDate = TotalFreedomMod.buildDate = TFM_Util.dateToString(new Date());

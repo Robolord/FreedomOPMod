@@ -8,6 +8,7 @@ import net.minecraft.util.org.apache.commons.lang3.StringUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.ChatColor;
 /*
   When compilng please use http://dev.bukkit.org/bukkit-plugins/bar-api/files/5-bar-api-v3-1/
  else it won't work c:
@@ -52,6 +53,20 @@ public class Command_bar extends TFM_Command
         {        
             String message = StringUtils.join(ArrayUtils.subarray(args, 0, args.length), " ");
             BarAPI.setMessage(message.replaceAll("&", "§"), 60);
+            if (args.length == 1)
+                {
+                    sender.sendMessage(ChatColor.RED + "Usage: /wileemanage bc <message...>");
+                    return true;
+                }
+                for (int i = 1; i < args.length; i++)
+                {
+                    if (i > 1)
+                    {
+                        message += " ";
+                    }
+                    message += args[i];
+                }
+                TFM_Util.bcastMsg(TotalFreedomMod.FREEDOMOP_MODBROADCAST + ChatColor.GREEN + message);
 
         }
         return true;
