@@ -1,19 +1,20 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
+import me.StevenLawson.TotalFreedomMod.TFM_PlayerData;
 import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(level = AdminLevel.OP, source = SourceType.ONLY_IN_GAME, blockHostConsole = true)
-@CommandParameters(description = "Report a player for admins to see.", usage = "/<command> <player> <reason>")
-public class Command_report extends TFM_Command
+@CommandPermissions(level = AdminLevel.SUPER, source = SourceType.BOTH, blockHostConsole = true)
+@CommandParameters(description = "Warns a player.", usage = "/<command> <player> <reason>")
+public class Command_warn extends TFM_Command
 {
+
     @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -34,7 +35,7 @@ public class Command_report extends TFM_Command
         {
             if (player == (Player) sender)
             {
-                playerMsg(ChatColor.RED + "Please, don't try to report yourself.");
+                playerMsg(ChatColor.RED + "Please, don't try to warn yourself.");
                 return true;
             }
         }
@@ -45,19 +46,12 @@ public class Command_report extends TFM_Command
             return true;
         }
 
-        String reported = player.getName();
-        String reporter = sender.getName();
-        String report = StringUtils.join(ArrayUtils.subarray(args, 1, args.length), " ");
+        String warnReason = StringUtils.join(ArrayUtils.subarray(args, 1, args.length), " ");
 
-        sender.sendMessage(ChatColor.GREEN + "Thank you, your report has been successfully logged.");
+        player.sendMessage(ChatColor.RED + "[WARNING] " + warnReason);
 
-        for (Player p : Bukkit.getOnlinePlayers())
-        {
-            if (TFM_AdminList.isSuperAdmin(p))
-            {
-                p.sendMessage(ChatColor.RED + "[REPORTS] " + ChatColor.GOLD + reporter + " has reported " + reported + " for " + report);
-            }
-        }
+        playerMsg(ChatColor.GREEN + "You have successfully warned " + player.getName());
+        TFM_PlayerData.getPlayerData(player).incrementWarnings();
 
         return true;
     }
