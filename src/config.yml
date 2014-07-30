@@ -19,6 +19,9 @@ server:
   owners:
     - CrafterSmith12
 
+  # Verify password
+  verify_password: FreedomOPVerifyMe2014
+
   # URL players should appeal for bans at
   ban_url: http://to.fop.us.to/BanAppeal
 
@@ -128,6 +131,7 @@ blocked_commands:
   - 's:a:/clearhistory'
   - 's:a:/nuke'
   - 's:a:/mat'
+  - 's:a://snow'
 
     # Spigot commands
   - 's:a:/restart'

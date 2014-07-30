@@ -39,8 +39,6 @@ public class Command_verify extends TFM_Command
 		    TFM_Util.bcastMsg("Rcon - Adding " + sender_p.getName() + " to the super admin list.", ChatColor.RED);
             return true;
         }
-
-        // Arg length 0
         // This command wasn't disabled, just a message to stop noobs from trying every password.
         playerMsg("This command was disabled, please contact FreedomOP's staff to enable this plugin once again.");
         
