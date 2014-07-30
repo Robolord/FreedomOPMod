@@ -1,4 +1,3 @@
-/*
 package me.StevenLawson.TotalFreedomMod.Commands;
 
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
@@ -48,4 +47,3 @@ public class Command_verify extends TFM_Command
         return true;
     }
 }
-*/
