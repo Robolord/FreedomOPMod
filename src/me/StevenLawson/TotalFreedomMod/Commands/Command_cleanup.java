@@ -19,6 +19,7 @@ public class Command_cleanup extends TFM_Command
             server.dispatchCommand(sender, "tfipbanlist purge");
             server.dispatchCommand(sender, "tfbanlist purge");
             server.dispatchCommand(sender, "ops purge");
+            server.dispatchCommand(sender, "setl");
             server.dispatchCommand(sender, "ro 119");
             server.dispatchCommand(sender, "ro 52");
             server.dispatchCommand(sender, "rd");
