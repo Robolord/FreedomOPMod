@@ -1,22 +1,15 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.util.List;
-import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
 import me.StevenLawson.TotalFreedomMod.TFM_Ban;
 import me.StevenLawson.TotalFreedomMod.TFM_BanManager;
-import me.StevenLawson.TotalFreedomMod.TFM_PlayerEntry;
 import me.StevenLawson.TotalFreedomMod.TFM_PlayerList;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
-import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.scheduler.BukkitRunnable;
 
 @CommandPermissions(level=AdminLevel.ALL, source=SourceType.BOTH)
