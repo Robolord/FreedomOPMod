@@ -22,9 +22,9 @@ public class Command_cleanup extends TFM_Command
             server.dispatchCommand(sender, "creative -a");
             server.dispatchCommand(sender, "purgeall");
             server.dispatchCommand(sender, "tfbanlist purge");
+            server.dispatchCommand(sender, "wipeuserdata");
             TFM_Util.bcastMsg(ChatColor.GREEN + "Midnightly Clean Up Completed. Reloading Server");
             server.dispatchCommand(sender, "fopm reload");
-            server.dispatchCommand(sender, "reload");
         }
         else
         {
