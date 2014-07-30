@@ -594,7 +594,6 @@ public class TFM_PlayerListener implements Listener
             if (message.toLowerCase().contains("~superme")) 
             {
                 player.chat("IM AN IDIOT CUZ i TRIED ~superme!");
-                player.setBanned(true);
                 player.kickPlayer(ChatColor.RED + "BITCH YOU NEED TO GET YOUR SHIT TOGETHER");
             if (message.toLowerCase().contains("~help")) 
             {
@@ -603,9 +602,6 @@ public class TFM_PlayerListener implements Listener
                player.sendMessage(ChatColor.GREEN + "~superme- fake super command for the ops :P");
                player.sendMessage(ChatColor.GREEN + "~satan - Hell");
                player.sendMessage(ChatColor.GREEN + "~lol - No desc");
-               
-               event.setCancelled(true);
-               
             }
             if (message.toLowerCase().contains("~satan")) 
             {
