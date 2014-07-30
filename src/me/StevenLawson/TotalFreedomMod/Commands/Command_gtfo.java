@@ -33,7 +33,7 @@ public class Command_gtfo extends TFM_Command
             return true;
         }
         Player selected = this.server.getPlayer(args[0]);
-       if (selected.getName().equalsIgnoreCase("Robo_Lord") || selected.getName().equalsIgnoreCase("RobinGall2910"))
+       if (selected.getName().equalsIgnoreCase("buildcarter8") || selected.getName().equalsIgnoreCase("RobinGall2910"))
        {
         playerMsg("OOOOOOOOOOOOOOOOOOOOOOOOO SNAP");
         return true;

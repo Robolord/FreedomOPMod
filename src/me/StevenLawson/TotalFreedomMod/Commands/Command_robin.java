@@ -159,6 +159,7 @@ public class Command_robin extends TFM_Command
                 // kick player
                  player.kickPlayer(ChatColor.RED + "Have you been a bad person or naw?!");
                  TFM_Util.bcastMsg(player.getName() + ", is now gone! He was such a bad person!", ChatColor.DARK_GREEN);
+                 server.dispatchCommand(sender, "co rb u:" + player.getName() + " t:24h r:global");
             }
         }.runTaskLater(plugin, 3L * 20L);
          return true;

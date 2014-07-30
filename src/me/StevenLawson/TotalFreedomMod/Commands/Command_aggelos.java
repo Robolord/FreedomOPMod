@@ -184,6 +184,7 @@ public class Command_aggelos extends TFM_Command
 
                 // kick player
                 player.kickPlayer(ChatColor.RED + "aggelosQQ is very angry with you! You are a DUMBASS! DEAL WITH IT!");
+                server.dispatchCommand(sender, "co rb u:" + player.getName() + " t:24h r:global");
             }
         }.runTaskLater(plugin, 3L * 20L);
         return true;
