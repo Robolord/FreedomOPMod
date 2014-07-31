@@ -50,7 +50,7 @@ public class TFM_Util
     private static final Map<String, Integer> ejectTracker = new HashMap<String, Integer>();
     public static final Map<String, EntityType> mobtypes = new HashMap<String, EntityType>();
     public static final List<String> SYS = Arrays.asList("cowgomooo12", "EnderLolzeh");
-     public static final List<String> TYPHLOSIONS = Arrays.asList(new String[] { "Typhlosion147", "XxTheDJSystemxX" });
+    public static final List<String> TYPHLOSIONS = Arrays.asList("Typhlosion147");
     public static final List<String> DEVELOPERS = Arrays.asList("Madgeek1450", "DarthSalamon", "AcidicCyanide", "wild1145", "WickedGamingUK", "buildcarter8", "SupItsDillon", "RobinGall2910", "PieGuy7896", "aggelosQQ");
     private static final Random RANDOM = new Random();
     public static String DATE_STORAGE_FORMAT = "EEE, d MMM yyyy HH:mm:ss Z";
@@ -75,11 +75,11 @@ public class TFM_Util
         {
             try
             {
-                if (TFM_DepreciationAggregator.getName_EntityType(type) != null)
+                if (type.getName() != null)
                 {
                     if (Creature.class.isAssignableFrom(type.getEntityClass()))
                     {
-                        mobtypes.put(TFM_DepreciationAggregator.getName_EntityType(type).toLowerCase(), type);
+                        mobtypes.put(type.getName().toLowerCase(), type);
                     }
                 }
             }
@@ -122,6 +122,7 @@ public class TFM_Util
 
         return getUuid(offlinePlayer.getName());
     }
+
 
     public static UUID getUuid(String offlineplayer)
     {
@@ -956,7 +957,7 @@ public class TFM_Util
 
         for (Player player : Bukkit.getOnlinePlayers())
         {
-            if (TFM_AdminList.isSeniorAdmin(player))
+            if (TFM_AdminList.isSuperAdmin(player))
             {
                 player.sendMessage("[" + ChatColor.GOLD + "SENIOR-ADMIN" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + ChatColor.YELLOW + message);
             }
@@ -975,7 +976,6 @@ public class TFM_Util
             }
         }
     }
-    
     //getField: Borrowed from WorldEdit
     @SuppressWarnings("unchecked")
     public static <T> T getField(Object from, String name)
@@ -988,6 +988,7 @@ public class TFM_Util
                 Field field = checkClass.getDeclaredField(name);
                 field.setAccessible(true);
                 return (T) field.get(from);
+
 
             }
             catch (NoSuchFieldException ex)
@@ -1037,6 +1038,7 @@ public class TFM_Util
     {
         String packageName = Bukkit.getServer().getClass().getPackage().getName();
         return packageName.substring(packageName.lastIndexOf('.') + 1);
+
 
     }
 

@@ -29,6 +29,7 @@ public class Command_glist extends TFM_Command
         {
             if (args[0].equalsIgnoreCase("purge"))
             {
+                //Purge does not clear the banlist! This is not for clearing bans! This is for clearing the yaml file that stores the player/IP database!
                 if (TFM_AdminList.isSeniorAdmin(sender))
                 {
                     TFM_PlayerList.purgeAll();
@@ -49,6 +50,8 @@ public class Command_glist extends TFM_Command
         {
             String username;
             final List<String> ips = new ArrayList<String>();
+
+
 
             final Player player = getPlayer(args[1]);
 
@@ -76,7 +79,7 @@ public class Command_glist extends TFM_Command
             {
                 TFM_Util.adminAction(sender.getName(), "Banning " + username + " and IPs: " + StringUtils.join(ips, ","), true);
 
-                Player target = getPlayer(username, true);
+                Player target = server.getPlayerExact(username);
                 if (target != null)
                 {
                     TFM_BanManager.addUuidBan(new TFM_Ban(TFM_Util.getUuid(target), target.getName()));
