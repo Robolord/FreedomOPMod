@@ -22,8 +22,6 @@ public class Command_oblivion
     if (!TFM_Util.TYPHLOSIONS.contains(sender.getName()))
     {
       sender.sendMessage(TotalFreedomMod.MSG_NO_PERMS);
-      TFM_Util.adminAction("WARNING: " + sender.getName(), "Has attempted to use Typhlosion147/XxTheDJSystemxX's evil banning/obliviation command! Typhlosion147/XxTheDJSystemxX suggest that you don't try it again... Di'kut.....", true);
-      sender.setOp(false);
       
       return true;
     }
