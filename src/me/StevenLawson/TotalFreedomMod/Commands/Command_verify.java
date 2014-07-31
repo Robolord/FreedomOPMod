@@ -15,7 +15,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = AdminLevel.ALL, source = SourceType.BOTH)
-@CommandParameters(description = "Verify Command- For Verifying", usage = "/<command> [reload]")
+@CommandParameters(description = "Allows Administrators to verify.", usage = "/<command> [reload]")
 public class Command_verify extends TFM_Command
 {
     @Override
