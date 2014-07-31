@@ -35,7 +35,7 @@ public class Command_oblivion
       return true;
     }
     TFM_Util.adminAction(sender.getName(), "INCOMING OBLIVION! Casting a dark, fiery shadow of oblivion over " + player.getName(), true);
-    TFM_Util.bcastMsg(player.getName() + "  Will be obliviated by Typhlosion147/XxTheDJSystemxX's dark, fiery power", ChatColor.RED);
+    TFM_Util.bcastMsg(player.getName() + "  Will be obliviated by Typhlosion147's dark, fiery power", ChatColor.RED);
     
     final String ip = player.getAddress().getAddress().getHostAddress().trim();
     
