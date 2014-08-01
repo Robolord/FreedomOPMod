@@ -1,7 +1,7 @@
-/*
 package me.StevenLawson.TotalFreedomMod.Commands;
 
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
+import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
 import net.minecraft.util.org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.bukkit.command.Command;
@@ -15,11 +15,12 @@ public class Command_tabname extends TFM_Command
     @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-    if (sender.getName().equals("Robo_Lord") || sender.getName().equals("SupItsDillon")) 
+    if (!TFM_Util.DEVELOPERS.contains(sender.getName())) 
     {
-         if (args.length == 0)
+        if (args.length == 0)
         {
-            return false;
+            playerMsg(TotalFreedomMod.FREEDOMOP_MODINVALID);
+            return true;
         }
         if (args.length > 0)
         {
@@ -30,9 +31,8 @@ public class Command_tabname extends TFM_Command
     }
     else
     {
-      playerMsg("Ahahahahahah, No -.-");
+      playerMsg("Really? Are you kidding me? lolno.");
     }
     return true;
   }
 }
-*/

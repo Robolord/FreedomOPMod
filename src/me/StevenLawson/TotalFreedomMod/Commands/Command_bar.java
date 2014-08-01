@@ -26,11 +26,6 @@ public class Command_bar extends TFM_Command
     @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        if (!TFM_Util.DEVELOPERS.contains(sender.getName()))
-        {
-            playerMsg(TotalFreedomMod.MSG_NO_PERMS);
-            return true;
-        }
         if (!server.getPluginManager().isPluginEnabled("BarAPI"))
         {
             playerMsg("BarAPI is not enabled on this server");
