@@ -1,3 +1,4 @@
+/*
 package me.StevenLawson.TotalFreedomMod.Commands;
 
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
@@ -34,3 +35,4 @@ public class Command_tabname extends TFM_Command
     return true;
   }
 }
+*/
