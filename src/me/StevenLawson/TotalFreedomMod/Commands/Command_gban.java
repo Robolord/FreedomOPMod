@@ -35,7 +35,7 @@ public class Command_gban extends TFM_Command
 
 
         server.dispatchCommand(sender, "co rb u:" + player.getName() + " t:24h r:global");
-        player.kickPlayer(ChatColor.RED + "Griefing, Coreprotect confirm!  Banned by '" + sender.getName() + "'.  Miscommunication, misunderstanding, wrongly banned?  Appeal at FreedomOP.boards.net");
+        player.kickPlayer(ChatColor.RED + "Griefing, CoreProtect confirm!  Banned by '" + sender.getName() + "'.  Miscommunication, misunderstanding, wrongly banned?  Appeal at FreedomOP.boards.net");
         // ban IPs
         for (String playerIp : TFM_PlayerList.getEntry(player).getIps())
         {
