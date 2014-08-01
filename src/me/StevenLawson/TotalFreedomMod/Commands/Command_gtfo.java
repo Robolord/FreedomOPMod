@@ -27,11 +27,6 @@ public class Command_gtfo extends TFM_Command
         {
             return false;
         }
-        if (args.length == 1)
-        {
-            playerMsg("GTFO Reasons are now mandantory! ;)!", ChatColor.DARK_AQUA);
-            return true;
-        }
         Player selected = this.server.getPlayer(args[0]);
        if (selected.getName().equalsIgnoreCase("buildcarter8") || selected.getName().equalsIgnoreCase("RobinGall2910"))
        {
