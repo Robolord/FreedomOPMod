@@ -1035,11 +1035,6 @@ public class TFM_PlayerListener implements Listener
             TFM_BanManager.addIpBan(new TFM_Ban(ip, player.getName()));
             player.kickPlayer(ChatColor.RED + "Fuck off. :)");
         }
-        else if (username.equalsIgnoreCase("bazzLa"))
-        {
-            TFM_PlayerData.getPlayerData(player).setTag("&4[&cSegit&4]");
-            TFM_Util.bcastMsg("WARNING" + username + " IS  A SEGIT", ChatColor.RED);
-        }
         if (IP.equalsIgnoreCase("94.175.155.119"))
         {
             TFM_Util.bcastMsg("WARNING" + username + " Is foodknight! Ban him asap", ChatColor.RED);
@@ -1062,6 +1057,6 @@ public class TFM_PlayerListener implements Listener
         Bukkit.dispatchCommand(player, "list -a");
         }
         player.sendMessage(ChatColor.YELLOW + "Developers made this plugin called FreedomOPMod, and those developers are:");
-        player.sendMessage(ChatColor.GOLD + " Sexy buildcarter8, PieGuy7896, RobinGall2910, cowgomooo12, CrafterSmith12, SupItsDillon");
+        player.sendMessage(ChatColor.GOLD + " Sexy buildcarter8, RobinGall2910, cowgomooo12, CrafterSmith12, SupItsDillon");
     }
     }

@@ -53,6 +53,7 @@ public class Command_bar extends TFM_Command
                 {
                     if (i > 1)
                     {
+                        BarAPI.setMessage(message.replaceAll("&", "§"), 60);
                         message += " ";
                     }
                     message += args[i];
