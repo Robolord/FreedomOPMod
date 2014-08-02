@@ -34,6 +34,7 @@ public class TFM_ServiceChecker
         services.put("skins.minecraft.net", new ServiceStatus("Minecraft Skins"));
         services.put("auth.mojang.com", new ServiceStatus("Mojang Authentiation (Legacy)"));
         services.put("session.minecraft.net", new ServiceStatus("Minecraft Sessions (Legacy)"));
+        services.put("xpaw.ru/mcstatus", new ServiceStatus("Main Minecraft Legacy Servers (Beta)"));
     }
 
     public void start()
