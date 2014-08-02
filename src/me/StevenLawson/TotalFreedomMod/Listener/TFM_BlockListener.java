@@ -60,8 +60,8 @@ public class TFM_BlockListener implements Listener
             {
                 if (playerdata.incrementAndGetFreecamDestroyCount() > TFM_ConfigEntry.FREECAM_TRIGGER_COUNT.getInteger())
                 {
-                    TFM_Util.bcastMsg(player.getName() + " has been flagged for possible freecam nuking.", ChatColor.RED);
-                    TFM_Util.autoEject(player, "Freecam (extended range) block breaking is not permitted on this server.");
+                    TFM_Util.bcastMsg(player.getName() + " has been flagged for possible Extended Range Breaking.", ChatColor.RED);
+                    TFM_Util.autoEject(player, "Extended range block breaking is not allowed on FreedomOP!");
 
                     playerdata.resetFreecamDestroyCount();
 
@@ -80,7 +80,7 @@ public class TFM_BlockListener implements Listener
                 if (playerdata.incrementAndGetBlockDestroyCount() > TFM_ConfigEntry.NUKE_MONITOR_COUNT_BREAK.getInteger())
                 {
                     TFM_Util.bcastMsg(player.getName() + " is breaking blocks too fast!", ChatColor.RED);
-                    TFM_Util.autoEject(player, "You are breaking blocks too fast. Nukers are not permitted on this server.");
+                    TFM_Util.autoEject(player, "You are breaking blocks too fast!  Nukers aren't allowed on FreedomOP!");
 
                     playerdata.resetBlockDestroyCount();
 
@@ -130,8 +130,8 @@ public class TFM_BlockListener implements Listener
             {
                 if (playerdata.incrementAndGetFreecamPlaceCount() > TFM_ConfigEntry.FREECAM_TRIGGER_COUNT.getInteger())
                 {
-                    TFM_Util.bcastMsg(player.getName() + " has been flagged for possible freecam building.", ChatColor.RED);
-                    TFM_Util.autoEject(player, "Freecam (extended range) block building is not permitted on this server.");
+                    TFM_Util.bcastMsg(player.getName() + " has been flagged for possible Extended Range placement.", ChatColor.RED);
+                    TFM_Util.autoEject(player, "Extended range building is not allowed on FreedomOP!");
 
                     playerdata.resetFreecamPlaceCount();
 
@@ -150,7 +150,7 @@ public class TFM_BlockListener implements Listener
                 if (playerdata.incrementAndGetBlockPlaceCount() > TFM_ConfigEntry.NUKE_MONITOR_COUNT_PLACE.getInteger())
                 {
                     TFM_Util.bcastMsg(player.getName() + " is placing blocks too fast!", ChatColor.RED);
-                    TFM_Util.autoEject(player, "You are placing blocks too fast.");
+                    TFM_Util.autoEject(player, "You are placing blocks too fast!  Build hacks aren't allowed due to server issues.");
 
                     playerdata.resetBlockPlaceCount();
 
@@ -186,8 +186,8 @@ public class TFM_BlockListener implements Listener
                 else
                 {
                     player.getInventory().setItem(player.getInventory().getHeldItemSlot(), new ItemStack(Material.COOKIE, 1));
-                    player.sendMessage(ChatColor.GRAY + "Lava placement is currently disabled.");
-
+                    player.sendMessage(ChatColor.GRAY + "Lava placement is not tolerated, ask an admin to place lava for you!");
+                    
                     event.setCancelled(true);
                 }
                 break;
@@ -221,7 +221,7 @@ public class TFM_BlockListener implements Listener
                 else
                 {
                     player.getInventory().setItem(player.getInventory().getHeldItemSlot(), new ItemStack(Material.COOKIE, 1));
-                    player.sendMessage(ChatColor.GRAY + "Fire placement is currently disabled.");
+                    player.sendMessage(ChatColor.GRAY + "Fire placement is disabled due to client side lag, please contact administrators to place fire for you.");
 
                     event.setCancelled(true);
                 }
@@ -239,7 +239,7 @@ public class TFM_BlockListener implements Listener
                 {
                     player.getInventory().setItem(player.getInventory().getHeldItemSlot(), new ItemStack(Material.COOKIE, 1));
 
-                    player.sendMessage(ChatColor.GRAY + "TNT is currently disabled.");
+                    player.sendMessage(ChatColor.GRAY + "TNT placement isn't allowed due to server lag issues!");
                     event.setCancelled(true);
                 }
                 break;
