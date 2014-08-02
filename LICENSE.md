@@ -2,40 +2,8 @@
 
 TotalFreedomMod is licensed under the TotalFreedom General License. It is available [here](https://github.com/TotalFreedom/License/blob/master/LICENSE.md).
 
-# FreedomOP Developers License #
-FreedomOPMod is licensed under the 'FreedomOP Developers License' and [TotalFreedom General License](https://github.com/TotalFreedom/License/blob/master/LICENSE.md)
-
-* 'FreedomOP Developers License' states: 
-  *  You are not premitted to change, add, or delete any code without written premission and apporval, sure as an e-mail or any archivable data that has been verified as that person via any medium, sure as Twitter.com or a forum post, from any of the names listed under as "VOUCHER".  
-  *  You're also not premitted to remove, nullify or otherwise "cancel out" any person, name, word, or symbol(s) (regardless of capitalization) enlisted under as "Keywords" without Craftersmtih12, Cowgomoo12 and or Buildcarter8's approval.
-
-
-
-
-# Keywords
-* Keywords listed below:
-  * "buildcarter8"
-  * "RobinGall2910"
-  * "cowgomooo12"
-  * "CrafterSmith12"
-  * "SupItsDillion"
-  * "PieGuy7896"
-  * "EnderLolzeh"
-  * "FreedomOPMod"
-  * "fopm"
-
-
-
-# Voucher
- 
-* Vouchers listed below:
-  * "buildcarter8"
-  * "RobinGall2910"
-  * "cowgomooo12"
-  * "CrafterSmith12"
-  * "SupItsDillion"
-  * "PieGuy7896"
-  * "EnderLolzeh"
+# FreedomOP Developers Licence #
+* It has been moved to [here](https://github.com/FreedomOPDevs/Licence/LICENSE.md)
 
 
 # Summary of TotalFreedom General License #
