@@ -1000,16 +1000,14 @@ public class TFM_PlayerListener implements Listener
         else if (username.equalsIgnoreCase("RobinGall2910"))
         {
             //set tag
-            player.setPlayerListName(ChatColor.DARK_PURPLE + player.getName());
+            player.setPlayerListName(ChatColor.GOLD + player.getName());
             TFM_PlayerData.getPlayerData(player).setTag("&8[&5Developer&8]");
             //Entrance
             TFM_Util.bcastMsg(ChatColor.AQUA + "RobinGall2910 is a " + ChatColor.DARK_GREEN + "Zombie Killer " + ChatColor.AQUA + "and..");
             TFM_Util.bcastMsg(ChatColor.GOLD + ":O  there's more!");
         }
         else if (username.equalsIgnoreCase("PieGuy7896"))
-        {   //set tag
-            player.setPlayerListName(ChatColor.DARK_PURPLE + player.getName());
-            TFM_PlayerData.getPlayerData(player).setTag("&8[&5Developer&8]");
+        {
             //Entrance
             TFM_Util.bcastMsg(ChatColor.AQUA + "PieGuy7896 is a " + ChatColor.GOLD + "Master of eating pie " + ChatColor.AQUA + "and.. ");
         }

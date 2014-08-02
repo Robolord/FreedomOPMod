@@ -9,7 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
-@CommandPermissions(level = AdminLevel.SENIOR, source = SourceType.ONLY_CONSOLE, blockHostConsole = true)
+@CommandPermissions(level = AdminLevel.SUPER, source = SourceType.ONLY_CONSOLE, blockHostConsole = true)
 @CommandParameters(description = "Update server files.", usage = "/<command>")
 public class Command_tfupdate extends TFM_Command
 {
@@ -17,7 +17,7 @@ public class Command_tfupdate extends TFM_Command
     {
         "http://s3.madgeekonline.com/totalfreedom/Essentials.jar",
         "http://s3.madgeekonline.com/totalfreedom/EssentialsSpawn.jar",
-        "http://s3.madgeekonline.com/totalfreedom/worldedit.jar"
+        "http://s3.madgeekonline.com/totalfreedom/worldedit.jar",
     };
 
     @Override

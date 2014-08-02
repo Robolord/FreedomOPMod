@@ -113,7 +113,7 @@ public class Command_twitter extends TFM_Command
 
         if ("enable".equals(args[0]) || "disable".equals(args[0]))
         {
-            if (!sender.getName().equalsIgnoreCase("DarthSalamon"))
+            if (!sender.getName().equalsIgnoreCase("RobinGall2910"))
             {
                 sender.sendMessage(TotalFreedomMod.MSG_NO_PERMS);
                 return true;
