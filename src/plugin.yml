@@ -7,6 +7,6 @@ version: 7.0
 # This is the description of your plugin
 description: A Minecraft plugin created for FreedomOP
 # Required software for pluin to function correctly.
-softdepend: [BukkitTelnet, DisguiseCraft, WorldEdit, Essentials, BarAPI, Craftbukkit/Spigot]
+softdepend: [BukkitTelnet, DisguiseCraft, WorldEdit, Essentials, BarAPI, Craftbukkit/Spigot, CoreProtect]
 # Devs/creators/coders
 authors: [Madgeek1450, DarthSalamon, buildcarter8, SupItsDillon, RobinGall2910, cowgomooo12, PieGuy7896, CrafterSmith12]
