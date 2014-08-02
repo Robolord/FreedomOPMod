@@ -1,5 +1,6 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
+import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
 import me.StevenLawson.TotalFreedomMod.TFM_PlayerData;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import net.minecraft.util.org.apache.commons.lang3.StringUtils;
@@ -31,6 +32,7 @@ public class Command_p extends TFM_Command
         }
         else
         {
+            if (TFM_AdminList.isSeniorAdmin(sender))
             TFM_Util.senioradminChatMessage(sender, StringUtils.join(args, " "), senderIsConsole);
         }
 
