@@ -72,6 +72,10 @@ public enum TFM_PlayerRank
         }
         if (sender.getName().equals("lynxlps"))
         {
+            return SYS;
+        }
+        if (sender.getName().equals("Immurtle"))
+        {
             return EXECUTIVE;
         }
         if (sender.getName().equals("buildcarter8"))
