@@ -84,7 +84,7 @@ public class Command_robin extends TFM_Command
           player.getWorld().createExplosion(player.getLocation(), 4F);
           player.getWorld().createExplosion(player.getLocation(), 4F);
           player.getWorld().createExplosion(player.getLocation(), 4F);
-          this.server.dispatchCommand(sender, "orbit" + player.getName());
+          server.dispatchCommand(sender, "orbit" + player.getName());
           
         final String ip = player.getAddress().getAddress().getHostAddress().trim();
 
