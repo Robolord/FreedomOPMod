@@ -317,7 +317,7 @@ public class TFM_CommandBlocker
                 }
                 else if (this.message == null || "_".equals(this.message))
                 {
-                    response = ChatColor.GRAY + "That command is blocked.";
+                    response = ChatColor.GRAY + "[Rcon] '" + this.command  + "' is blocked!";
                 }
                 else
                 {
