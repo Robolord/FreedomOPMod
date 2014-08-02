@@ -139,7 +139,9 @@ public class Module_help extends TFM_HTTPD_Module
     @Override
     public String getTitle()
     {
-        return "FreedomOP - Command Help";
+        // I'd highly suggest changing the namne, however...
+        // When changed, it corrupts website:port/help
+        return "TotalFreedomMod :: Command Help";
     }
 
     @Override
