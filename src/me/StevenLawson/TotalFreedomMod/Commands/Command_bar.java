@@ -53,11 +53,11 @@ public class Command_bar extends TFM_Command
                 {
                     if (i > 1)
                     {
-                        BarAPI.setMessage(message.replaceAll("&", "§"), 60);
                         message += " ";
                     }
                     message += args[i];
                 }
+                BarAPI.setMessage(message.replaceAll("&", "§"), 60);
                 TFM_Util.bcastMsg(TotalFreedomMod.FREEDOMOP_MODBROADCAST + ChatColor.GREEN + message);
 
         }

@@ -30,9 +30,8 @@ public class Command_p extends TFM_Command
             userinfo.setAdminChat(!userinfo.inAdminChat());
             playerMsg("Toggled Senior Admin Chat " + (userinfo.inAdminChat() ? "on" : "off") + ".");
         }
-        else
-        {
-            if (TFM_AdminList.isSeniorAdmin(sender))
+        else if (TFM_AdminList.isSeniorAdmin(sender))
+        {   
             TFM_Util.senioradminChatMessage(sender, StringUtils.join(args, " "), senderIsConsole);
         }
 
