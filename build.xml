@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="TotalFreedomMod" default="default" basedir=".">
-    <description>Builds, tests, and runs the project TotalFreedomMod.</description>
+<project name="FreedomOPMod" default="default" basedir=".">
+    <description>Builds, tests, and runs the project FreedomOPMod.</description>
     <import file="nbproject/build-impl.xml" />
 
     <target name="-pre-jar">
