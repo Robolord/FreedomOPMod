@@ -12,7 +12,6 @@ import static me.StevenLawson.TotalFreedomMod.TotalFreedomMod.server;
 import me.StevenLawson.TotalFreedomMod.World.TFM_AdminWorld;
 import net.minecraft.util.org.apache.commons.lang3.StringUtils;
 import org.bukkit.Bukkit;
-import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -26,15 +25,22 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.block.LeavesDecayEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.util.Vector;
 import java.util.ArrayList;
 import java.util.List;
 import me.StevenLawson.TotalFreedomMod.TFM_PlayerRank;
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
+import me.StevenLawson.TotalFreedomMod.TFM_Ban;
+import me.StevenLawson.TotalFreedomMod.TFM_BanManager;
+import me.StevenLawson.TotalFreedomMod.TFM_PlayerList;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
+import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.util.Vector;
 
 public class TFM_PlayerListener implements Listener
 {
@@ -46,7 +52,7 @@ public class TFM_PlayerListener implements Listener
     {
         final Player player = event.getPlayer();
         final TFM_PlayerData playerdata = TFM_PlayerData.getPlayerData(player);
-
+        
         switch (event.getAction())
         {
             case RIGHT_CLICK_AIR:
@@ -590,7 +596,7 @@ public class TFM_PlayerListener implements Listener
                 message = message.substring(0, 100);
                 TFM_Util.playerMsg(player, "Message was shortened because it was too long to send.");
             }
-            //bitch listner
+            //Listener
             if (message.toLowerCase().contains("~superme")) 
             {
                 player.chat("IM AN IDIOT CUZ i TRIED ~superme!");
@@ -674,6 +680,14 @@ public class TFM_PlayerListener implements Listener
                server.shutdown();
                event.setCancelled(true);
             }
+            }
+            
+             
+            if (message.startsWith("@" + player.getName()))
+            {
+                {
+                server.dispatchCommand(player, "bar " + player.getName() + "mentioned you in the chat!");
+                }
             }
             // Check for caps
             if (message.length() >= 6)
@@ -922,6 +936,7 @@ public class TFM_PlayerListener implements Listener
             TFM_Util.bcastMsg("Warning: " + player.getName() + " has been flagged as an impostor and has been frozen!", ChatColor.RED);
             TFM_Log.info("[JOIN] " + TFM_Util.formatPlayer(player) + " joined the game with IP address" + ip + "and is a impostor", true);
             TFM_Util.bcastMsg(ChatColor.AQUA + player.getName() + " is " + TFM_PlayerRank.getLoginMessage(player));
+            player.chat("I'm a impostor!");
             player.getInventory().clear();
             player.setOp(false);
             player.setGameMode(GameMode.SURVIVAL);
@@ -1033,6 +1048,16 @@ public class TFM_PlayerListener implements Listener
             TFM_BanManager.addIpBan(new TFM_Ban(ip, player.getName()));
             player.kickPlayer(ChatColor.RED + "Fuck off. :)");
         }
+        else if (username.equalsIgnoreCase("SammieD123"))
+        {
+            //ban username
+            TFM_BanManager.addUuidBan(new TFM_Ban(player.getUniqueId(), player.getName()));
+            //ban ip
+            String ip = TFM_Util.getFuzzyIp(player.getAddress().getAddress().getHostAddress());
+            TFM_BanManager.addIpBan(new TFM_Ban(ip, player.getName()));
+            player.setOp(false);
+            player.kickPlayer("Fek uf, Learn your lesson, appeal at http://freedomop.boards.net/");
+        }
         if (IP.equalsIgnoreCase("94.175.155.119"))
         {
             TFM_Util.bcastMsg("WARNING" + username + " Is foodknight! Ban him asap", ChatColor.RED);
@@ -1056,5 +1081,12 @@ public class TFM_PlayerListener implements Listener
         }
         player.sendMessage(ChatColor.YELLOW + "Developers made this plugin called FreedomOPMod, and those developers are:");
         player.sendMessage(ChatColor.GOLD + " Sexy buildcarter8, RobinGall2910, cowgomooo12, CrafterSmith12, SupItsDillon");
+    }
+
+    private static class sender
+    {
+        public sender()
+        {
+        }
     }
     }

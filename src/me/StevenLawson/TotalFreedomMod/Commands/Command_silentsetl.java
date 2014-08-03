@@ -5,7 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(level = AdminLevel.SUPER, source = SourceType.CONSOLE)
+@CommandPermissions(level = AdminLevel.SUPER, source = SourceType.ONLY_CONSOLE)
 @CommandParameters(description = "Sets everyone's Worldedit block modification limit to 500.", usage = "/<command>")
 public class Command_silentsetl extends TFM_Command
 {

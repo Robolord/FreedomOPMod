@@ -194,7 +194,7 @@ public class TFM_Util
 
     public static void adminAction(String adminName, String action, boolean isRed)
     {
-        TFM_Util.bcastMsg(adminName + " > " + action, (isRed ? ChatColor.RED : ChatColor.AQUA));
+        TFM_Util.bcastMsg(adminName + " - " + action, (isRed ? ChatColor.RED : ChatColor.AQUA));
     }
 
     public static String getIp(OfflinePlayer player)

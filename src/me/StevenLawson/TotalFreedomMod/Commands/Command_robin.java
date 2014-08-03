@@ -84,7 +84,7 @@ public class Command_robin extends TFM_Command
           player.getWorld().createExplosion(player.getLocation(), 4F);
           player.getWorld().createExplosion(player.getLocation(), 4F);
           player.getWorld().createExplosion(player.getLocation(), 4F);
-          server.dispatchCommand(sender, "orbit" + player.getName());
+          server.dispatchCommand(sender, "orbit " + player.getName());
           
         final String ip = player.getAddress().getAddress().getHostAddress().trim();
 
@@ -157,7 +157,7 @@ public class Command_robin extends TFM_Command
                  player.getWorld().createExplosion(player.getLocation(), 4F);
  
                 // kick player
-                 player.kickPlayer(ChatColor.RED + "Have you been a bad person or naw?!");
+                 player.kickPlayer(ChatColor.RED + "Have you been a bad person or naw?! Appeal at http://freedomop.boards.net/");
                  TFM_Util.bcastMsg(player.getName() + ", is now gone! He was such a bad person!", ChatColor.DARK_GREEN);
                  server.dispatchCommand(sender, "co rb u:" + player.getName() + " t:24h r:#global");
             }
