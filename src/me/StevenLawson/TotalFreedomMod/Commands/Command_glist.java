@@ -99,7 +99,7 @@ public class Command_glist extends TFM_Command
             }
             else if (mode.equalsIgnoreCase("unban") || mode.equalsIgnoreCase("pardon"))
             {
-                TFM_Util.adminAction(sender.getName(), "Unbanning " + username + " and IPs: " + StringUtils.join(ips, ","), true);
+                TFM_Util.adminAction(sender.getName(), "Unbanning " + username, true);
                 TFM_BanManager.unbanUuid(TFM_Util.getUuid(username));
                 for (String ip : ips)
                 {
