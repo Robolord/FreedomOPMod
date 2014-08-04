@@ -48,7 +48,7 @@ public class Command_robot extends TFM_Command
             }
         }
 
-        TFM_Util.adminAction(sender.getName(), "kicked " + sender.getName() + " for attempting to outsmart him!", true);
+        TFM_Util.adminAction(sender.getName(), "kicked " + player.getName() + " for attempting to outsmart him!", true);
         player.kickPlayer(ChatColor.RED + "Think you can outsmart " + sender.getName() + "?  I think not!");
 
         return true;
