@@ -3,7 +3,7 @@
 TotalFreedomMod is licensed under the TotalFreedom General License. It is available [here](https://github.com/TotalFreedom/License/blob/master/LICENSE.md).
 
 # FreedomOP Developers Licence #
-* It has been moved to [here](https://github.com/FreedomOPDevs/Licence/LICENSE.md)
+* It has been moved to [here](https://github.com/FreedomOpDevs/License/blob/master/License.md)
 
 
 # Summary of TotalFreedom General License #
