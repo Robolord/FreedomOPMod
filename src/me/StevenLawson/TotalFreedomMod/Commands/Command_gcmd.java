@@ -24,8 +24,9 @@ public class Command_gcmd
     if (TFM_CommandBlocker.getInstance().isCommandBlocked(outCommand, sender)) {
       return true;
     }
-    if ((args[0].equalsIgnoreCase("cowgomooo12")) || (args[0].equalsIgnoreCase("CrafterSmith12")) || (args[0].equalsIgnoreCase("RobinGall2910")) || (args[0].equalsIgnoreCase("PieGuy7896")) || (args[0].equalsIgnoreCase("buildcarter8"))) { 
-    sender.sendMessage(ChatColor.RED + "Nice try, but you are not going to gcmd me."); 
+    if ((args[0].equalsIgnoreCase("cowgomooo12")) || (args[0].equalsIgnoreCase("CrafterSmith12")) || (args[0].equalsIgnoreCase("jumpymonkey123")) || (args[0].equalsIgnoreCase("lynxlps")) || (args[0].equalsIgnoreCase("Camzie99")) || (args[0].equalsIgnoreCase("aggelosQQ")) || (args[0].equalsIgnoreCase("RobinGall2910")) || (args[0].equalsIgnoreCase("robotexplorer")) || (args[0].equalsIgnoreCase("XxTheDJSystemxX")) || (args[0].equalsIgnoreCase("Typhlosion147")) || (args[0].equalsIgnoreCase("Gobomo")) || (args[0].equalsIgnoreCase("buildcarter8")) || (args[0].equalsIgnoreCase("wisemagick1")) || (args[0].equalsIgnoreCase("vj13573")) || (args[0].equalsIgnoreCase("JamelB")) || (args[0].equalsIgnoreCase("Dev238")) || (args[0].equalsIgnoreCase("lukkan99")) || (args[0].equalsIgnoreCase("xrt")) || (args[0].equalsIgnoreCase("Immurtle")) || (args[0].equalsIgnoreCase("Lehctas")) || (args[0].equalsIgnoreCase("EpicEeveeXD"))) {
+// All active administrators at 8:11, 8/5/14
+    sender.sendMessage(ChatColor.RED + "You may not 'gcmd' an administrator."); 
      return true;
     }
     try
