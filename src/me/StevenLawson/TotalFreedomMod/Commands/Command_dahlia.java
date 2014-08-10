@@ -15,14 +15,14 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
 @CommandPermissions(level = AdminLevel.SUPER, source = SourceType.BOTH)
-@CommandParameters(description = "For the bad bad bad bad bad bad pepole shall meet dahila.", usage = "/<command> <playername>")
-public class Command_dahila extends TFM_Command
+@CommandParameters(description = "For the bad bad bad bad bad bad pepole shall meet dahlia.", usage = "/<command> <playername>")
+public class Command_dahlia extends TFM_Command
 {
     @Override
     public boolean run(final CommandSender sender, final Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
    
-           if (!sender.getName().equalsIgnoreCase("darklynx108"))
+           if (!sender.getName().equalsIgnoreCase("lynxlps"))
         {
             playerMsg(TotalFreedomMod.MSG_NO_PERMS);
             return true;
@@ -41,13 +41,13 @@ public class Command_dahila extends TFM_Command
         }
          TFM_Util.adminAction(sender.getName(), "Making it rain hell over " + player.getName(), true);
          TFM_Util.adminAction(sender.getName(), "And will be destroyed!", true);
-         sender_p.chat("Oh yeah, Dahila is coming.");
+         sender_p.chat("Oh yeah, Dahlia is coming.");
          player.chat("NO! PLEASE NO!");
-         sender_p.chat("Well sorry, now Dahila is coming to kill you.");
+         sender_p.chat("Well sorry, now Dahlia is coming to kill you.");
          player.chat("Dont get rid of me!");
-         sender_p.chat("Well, how about this? NO!- Dahila Hawthrone");
+         sender_p.chat("Well, how about this? NO!- Dahlia Hawthrone");
          // im awesome aint i?
-         sender.sendMessage(player.getName() + " well, you have sent the player to dahila, he is gone :)");
+         sender.sendMessage(player.getName() + " well, you have sent the player to dahlia, he is gone :)");
           player.setVelocity(player.getVelocity().clone().add(new Vector(0, 20, 0)));
           player.setVelocity(player.getVelocity().clone().add(new Vector(0, 20, 0)));
           player.setVelocity(player.getVelocity().clone().add(new Vector(0, 20, 0)));
@@ -137,10 +137,10 @@ public class Command_dahila extends TFM_Command
                  player.setHealth(0.0);
                  
                  //Broadcast player is gone
-                 TFM_Util.bcastMsg("WOAH! Obliviated by Dahila?!? Thats amazing!");
+                 TFM_Util.bcastMsg("WOAH! Obliviated by Dahlia?!? Thats amazing!");
                  
                  //says im dead
-                 player.chat("Well I'm gone. Dahila, take me to hell and kill me.");
+                 player.chat("Well I'm gone. Dahlia, take me to hell and kill me.");
                  sender_p.chat("Sure. *smiles innocently* You will die from there.");
              }
         }.runTaskLater(plugin, 2L * 20L);
@@ -157,7 +157,7 @@ public class Command_dahila extends TFM_Command
                  player.getWorld().createExplosion(player.getLocation(), 4F);
  
                 // kick player
-                 player.kickPlayer(ChatColor.RED + "You have been killed by Dahila Hawthrone. Have a nice day in hell! -Dahila Hawthrone");
+                 player.kickPlayer(ChatColor.RED + "You have been killed by Dahlia Hawthrone. Have a nice day in hell! -Dahlia Hawthrone");
                  TFM_Util.bcastMsg(player.getName() + ", Has met his fate." + ChatColor.DARK_GREEN);
                  sender.sendMessage("You will now recive some CoreProtect spam rollback.");
                  server.dispatchCommand(sender, "co rb u:" + player.getName() + " t:24h r:#global");
