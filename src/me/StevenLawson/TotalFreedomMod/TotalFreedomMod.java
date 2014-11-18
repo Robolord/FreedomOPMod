@@ -1,9 +1,5 @@
 package me.StevenLawson.TotalFreedomMod;
 
-import me.StevenLawson.TotalFreedomMod.Commands.TFM_CommandHandler;
-import me.StevenLawson.TotalFreedomMod.World.TFM_Flatlands;
-import me.StevenLawson.TotalFreedomMod.World.TFM_AdminWorld;
-import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
@@ -12,9 +8,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import me.StevenLawson.TotalFreedomMod.Commands.TFM_CommandHandler;
 import me.StevenLawson.TotalFreedomMod.Commands.TFM_CommandLoader;
+import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import me.StevenLawson.TotalFreedomMod.HTTPD.TFM_HTTPD_Manager;
 import me.StevenLawson.TotalFreedomMod.Listener.*;
+import me.StevenLawson.TotalFreedomMod.World.TFM_AdminWorld;
+import me.StevenLawson.TotalFreedomMod.World.TFM_Flatlands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Server;
@@ -34,22 +34,28 @@ public class TotalFreedomMod extends JavaPlugin
     public static final long SERVICE_CHECKER_RATE = 120L;
     //
     public static final String SUPERADMIN_FILE = "superadmin.yml";
+    public static final String DONATOR_FILE = "donator.yml";
     public static final String PERMBAN_FILE = "permban.yml";
     public static final String PROTECTED_AREA_FILE = "protectedareas.dat";
     public static final String SAVED_FLAGS_FILE = "savedflags.dat";
     //
-    public static final String MSG_NO_PERMS = ChatColor.YELLOW + "You do not have permission to use this command.";
+    public static final String MSG_NO_PERMS = ChatColor.BLUE + "You do not have permission to use this command.";
     public static final String YOU_ARE_OP = ChatColor.YELLOW + "You are now op!";
     public static final String YOU_ARE_NOT_OP = ChatColor.YELLOW + "You are no longer op!";
+    public static final String COOKIE_LYRICS = "Quick! Before the cookie monster gets me";
     public static final String PIE_LYRICS = "PIE FOR EVERYONE! :D";
+    public static final String POTATO_LYRICS = "They're red, they're white, they're brown. They get that way underground. There can't be much to do. So now they have blue ones too. We don't care what they look like we'll eat them. Any way they can fit on our plate. Every way we can conjure to heat them. We're delighted and think they're just great.";
     public static final String NUBCAKE = ChatColor.RED + "You are a nubcake.";
     public static final String CAKE_LYRICS = "But there's no sense crying over every mistake. You just keep on trying till you run out of cake.";
     public static final String NOT_FROM_CONSOLE = "This command may not be used from the console.";
     public static final String PLAYER_NOT_FOUND = ChatColor.GRAY + "Player not found!";
-    public static final String PASSWORD_VERIFY = "freedomopfopm334";
+    public static final String PASSWORD_VERIFY = "FreedomOPVerify2014";
     public static final String YOU_ARE_NOT_IMPOSTER = "You are not an imposter or you are not an admin.";
     public static final String INCORRECT_PSW = "That password is incorrect.";
-    public static final String FREEDOMOP_MOD = ChatColor.GRAY + "[" + ChatColor.RED + "FreedomOpMod" + ChatColor.GRAY + "]";
+    public static final String FREEDOMOP_MOD = ChatColor.GRAY + "[" + ChatColor.RED + "FreedomOPMod" + ChatColor.GRAY + "]";
+    public static final String FREEDOMOP_MODREPORT = ChatColor.WHITE + "[" + ChatColor.DARK_GREEN + "FreedomOP Report" + ChatColor.WHITE + "]";
+    public static final String FREEDOMOP_MODBROADCAST = ChatColor.GRAY + "[" + ChatColor.RED + "FreedomOPModBroadcast" + ChatColor.GRAY + "]";
+    public static final String FREEDOMOP_MODINVALID = ChatColor.GRAY + "[" + ChatColor.RED + "FreedomOPMod" + ChatColor.GRAY + "]" + ChatColor.WHITE + "That response was invaild.";
     //
     public static String buildNumber = "0";
     public static String buildDate = TotalFreedomMod.buildDate = TFM_Util.dateToString(new Date());
@@ -94,7 +100,6 @@ public class TotalFreedomMod extends JavaPlugin
                     + "version " + TFM_Util.getNmsVersion() + "!");
             TFM_Log.warning("This might result in unexpected behaviour!");
         }
-
         // Admin list
         TFM_Util.createBackups(SUPERADMIN_FILE);
         TFM_AdminList.load();
@@ -102,10 +107,10 @@ public class TotalFreedomMod extends JavaPlugin
         // Permban list
         TFM_Util.createBackups(PERMBAN_FILE);
         TFM_PermbanList.load();
-
+        
         // Playerlist and bans
-        TFM_PlayerList.getInstance().load();
-        TFM_BanManager.getInstance().load();
+        TFM_PlayerList.load();
+        TFM_BanManager.load();
 
         TFM_Util.deleteFolder(new File("./_deleteme"));
 
@@ -194,9 +199,7 @@ public class TotalFreedomMod extends JavaPlugin
     public void onDisable()
     {
         server.getScheduler().cancelTasks(plugin);
-
-        TFM_HTTPD_Manager.getInstance().stop();
-        TFM_BanManager.getInstance().save();
+        TFM_BanManager.save();
 
         TFM_Log.info("Plugin disabled");
     }

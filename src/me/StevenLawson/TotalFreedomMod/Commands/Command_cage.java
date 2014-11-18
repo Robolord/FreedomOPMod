@@ -3,6 +3,7 @@ package me.StevenLawson.TotalFreedomMod.Commands;
 import me.StevenLawson.TotalFreedomMod.TFM_PlayerData;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
+import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -75,7 +76,7 @@ public class Command_cage extends TFM_Command
             }
             else
             {
-                if ("darth".equalsIgnoreCase(args[1]))
+                if ("robo".equalsIgnoreCase(args[1]))
                 {
                     outerMaterial = Material.SKULL;
                 }
@@ -114,7 +115,7 @@ public class Command_cage extends TFM_Command
         }
         else
         {
-            TFM_Util.adminAction(sender.getName(), "Caging " + player.getName() + " in PURE_DARTH", true);
+            TFM_Util.adminAction(ChatColor.DARK_GREEN + sender.getName(), "Caging " + player.getName() + " in ROBO'S_EVERLASTING_GLAZE", true);
         }
 
         return true;

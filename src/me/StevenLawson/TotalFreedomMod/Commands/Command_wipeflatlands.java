@@ -6,8 +6,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(level = AdminLevel.SENIOR, source = SourceType.ONLY_CONSOLE, blockHostConsole = true)
-@CommandParameters(description = "Wipe the flatlands map. Requires manual restart after command is used.", usage = "/<command>")
+@CommandPermissions(level = AdminLevel.SUPER, source = SourceType.ONLY_CONSOLE, blockHostConsole = true)
+@CommandParameters(description = "Wipe the flatlands map.   Requires restart after command is used!", usage = "/<command>")
 public class Command_wipeflatlands extends TFM_Command
 {
     @Override
@@ -15,11 +15,11 @@ public class Command_wipeflatlands extends TFM_Command
     {
         TFM_Util.setSavedFlag("do_wipe_flatlands", true);
 
-        TFM_Util.bcastMsg("Server is going offline for flatlands wipe.", ChatColor.GRAY);
+        TFM_Util.bcastMsg("FreedomOP is restarting for to wipe the flatlands!", ChatColor.GRAY);
 
         for (Player player : server.getOnlinePlayers())
         {
-            player.kickPlayer("Server is going offline for flatlands wipe, come back in a few minutes.");
+            player.kickPlayer("FreedomOP is restarting to wipe the flatlands, come back in a three minutes :X");
         }
 
         server.shutdown();

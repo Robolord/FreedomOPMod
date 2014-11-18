@@ -1,5 +1,5 @@
-# TotalFreedomMod v4.7 Configuration
-# by Madgeek1450 and DarthSalamon
+# FreedomOPMod v7.6 Configuration
+# By Madgeek And DarthSalamon
 
 # Generic server information
 server:
@@ -18,6 +18,9 @@ server:
   # All players who show up as owner
   owners:
     - CrafterSmith12
+
+  # Verify password
+  verify_password: FreedomOPVerifyMe2014
 
   # URL players should appeal for bans at
   ban_url: http://to.fop.us.to/BanAppeal
@@ -96,7 +99,7 @@ blocked_commands:
   - 'n:b:/mute:You are required to use "/stfu" instead.'
   - 'n:u:/cb:_'
   - 'n:b:/mail sendall:&4You cannot send mails to everyone!'
-
+  - 'n:b:/ass:&4this command is not currently allowed'
 
   # Superadmin commands
   - 's:b:/deopall:_'
@@ -128,6 +131,7 @@ blocked_commands:
   - 's:a:/clearhistory'
   - 's:a:/nuke'
   - 's:a:/mat'
+  - 's:a://snow'
 
     # Spigot commands
   - 's:a:/restart'

@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.UUID;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -23,6 +24,7 @@ public class TFM_PlayerData
     public final static Map<Player, TFM_PlayerData> userinfo = new HashMap<Player, TFM_PlayerData>();
     private final Player player;
     private final String ip;
+    private final UUID uuid;
     private boolean isFrozen = false;
     private boolean isMuted = false;
     private boolean isHalted = false;
@@ -53,10 +55,12 @@ public class TFM_PlayerData
     private String lastCommand = "";
     private boolean cmdspyEnabled = false;
     private String tag = null;
+    private int warning = 0;
 
     private TFM_PlayerData(Player player)
     {
         this.player = player;
+        this.uuid = TFM_Util.getUuid(player.getName());
         this.ip = player.getAddress().getAddress().getHostAddress();
     }
 
@@ -64,38 +68,43 @@ public class TFM_PlayerData
     {
         TFM_PlayerData playerdata = TFM_PlayerData.userinfo.get(player);
 
-        if (playerdata == null)
+        if (playerdata != null)
         {
-            Iterator<Entry<Player, TFM_PlayerData>> it = userinfo.entrySet().iterator();
-            while (it.hasNext())
-            {
-                Entry<Player, TFM_PlayerData> pair = it.next();
-                TFM_PlayerData playerdataTest = pair.getValue();
+            return playerdata;
+        }
 
-                if (playerdataTest.player.getName().equalsIgnoreCase(player.getName()))
+
+        Iterator<Entry<Player, TFM_PlayerData>> it = userinfo.entrySet().iterator();
+        while (it.hasNext())
+        {
+            Entry<Player, TFM_PlayerData> pair = it.next();
+            TFM_PlayerData playerdataTest = pair.getValue();
+
+            if (playerdataTest.player.getName().equalsIgnoreCase(player.getName()))
+            {
+                if (Bukkit.getOnlineMode())
                 {
-                    if (Bukkit.getOnlineMode())
+                    playerdata = playerdataTest;
+                    break;
+                }
+                else
+                {
+                    if (playerdataTest.ip.equalsIgnoreCase(player.getAddress().getAddress().getHostAddress()))
                     {
                         playerdata = playerdataTest;
                         break;
-                    }
-                    else
-                    {
-                        if (playerdataTest.ip.equalsIgnoreCase(player.getAddress().getAddress().getHostAddress()))
-                        {
-                            playerdata = playerdataTest;
-                            break;
-                        }
                     }
                 }
             }
         }
 
-        if (playerdata == null)
+        if (playerdata != null)
         {
-            playerdata = new TFM_PlayerData(player);
-            TFM_PlayerData.userinfo.put(player, playerdata);
+            return playerdata;
         }
+
+        playerdata = new TFM_PlayerData(player);
+        TFM_PlayerData.userinfo.put(player, playerdata);
 
         return playerdata;
     }
@@ -103,6 +112,11 @@ public class TFM_PlayerData
     public String getIpAddress()
     {
         return this.ip;
+    }
+
+    UUID getUniqueId()
+    {
+        return uuid;
     }
 
     public boolean isOrbiting()
@@ -489,5 +503,21 @@ public class TFM_PlayerData
     public String getTag()
     {
         return this.tag;
+    }
+    
+    public int getWarning()
+    {
+        return this.warning;
+}
+    
+    public void incrementWarnings()
+    {
+        this.warning++;
+        
+        if (warning >= 2)
+        {
+            this.player.getWorld().strikeLightning(this.player.getLocation());
+            this.player.sendMessage(ChatColor.RED + "You have been warned at least twice now, make sure to read the rules at http://totalfreedom.me");
+        }
     }
 }

@@ -6,6 +6,8 @@ import java.lang.reflect.Field;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -47,8 +49,9 @@ public class TFM_Util
 {
     private static final Map<String, Integer> ejectTracker = new HashMap<String, Integer>();
     public static final Map<String, EntityType> mobtypes = new HashMap<String, EntityType>();
-    public static final List<String> DEVELOPERS = Arrays.asList("Madgeek1450", "DarthSalamon", "AcidicCyanide", "wild1145", "WickedGamingUK", "buildcarter8", "Robo_Lord", "Supitsdillon");
-    public static final List<String> EXECUTIVES = Arrays.asList("lynxlps");
+    public static final List<String> SYS = Arrays.asList("cowgomooo12", "EnderLolzeh", "lynxlps");
+    public static final List<String> TYPHLOSIONS = Arrays.asList("Typhlosion147");
+    public static final List<String> DEVELOPERS = Arrays.asList("Madgeek1450", "DarthSalamon", "AcidicCyanide", "wild1145", "WickedGamingUK", "buildcarter8", "SupItsDillon", "RobinGall2910", "Camzie99", "aggelosQQ", "Dev238", "0sportguy0");
     private static final Random RANDOM = new Random();
     public static String DATE_STORAGE_FORMAT = "EEE, d MMM yyyy HH:mm:ss Z";
     public static final Map<String, ChatColor> CHAT_COLOR_NAMES = new HashMap<String, ChatColor>();
@@ -110,6 +113,58 @@ public class TFM_Util
         return true;
     }
 
+    public static UUID getUuid(OfflinePlayer offlinePlayer)
+    {
+        if (offlinePlayer instanceof Player)
+        {
+            return TFM_PlayerData.getPlayerData((Player) offlinePlayer).getUniqueId();
+        }
+
+        return getUuid(offlinePlayer.getName());
+    }
+
+
+    public static UUID getUuid(String offlineplayer)
+    {
+        final UUID uuid = TFM_UuidResolver.getUUIDOf(offlineplayer);
+
+        if (uuid == null)
+        {
+            return generateUuidForName(offlineplayer);
+        }
+
+        return uuid;
+    }
+
+    public static UUID generateUuidForName(String name)
+    {
+        TFM_Log.info("Generating spoof UUID for " + name);
+        name = name.toLowerCase();
+        try
+        {
+            final MessageDigest mDigest = MessageDigest.getInstance("SHA1");
+            byte[] result = mDigest.digest(name.getBytes());
+            final StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < result.length; i++)
+            {
+                sb.append(Integer.toString((result[i] & 0xff) + 0x100, 16).substring(1));
+            }
+
+            return UUID.fromString(
+                    sb.substring(0, 8)
+                    + "-" + sb.substring(8, 12)
+                    + "-" + sb.substring(12, 16)
+                    + "-" + sb.substring(16, 20)
+                    + "-" + sb.substring(20, 32));
+        }
+        catch (NoSuchAlgorithmException ex)
+        {
+            TFM_Log.severe(ex);
+        }
+
+        return UUID.randomUUID();
+    }
+
     public static void bcastMsg(String message, ChatColor color)
     {
         TFM_Log.info(message, true);
@@ -149,7 +204,7 @@ public class TFM_Util
             return ((Player) player).getAddress().getAddress().getHostAddress().trim();
         }
 
-        final TFM_PlayerEntry entry = TFM_PlayerList.getInstance().getEntry(player.getUniqueId());
+        final TFM_Player entry = TFM_PlayerList.getEntry(TFM_Util.getUuid(player));
 
         if (entry == null)
         {
@@ -170,7 +225,7 @@ public class TFM_Util
 
     public static String formatPlayer(OfflinePlayer player)
     {
-        return player.getName() + " (" + player.getUniqueId() + ")";
+        return player.getName() + " (" + TFM_Util.getUuid(player) + ")";
     }
 
     /**
@@ -475,9 +530,8 @@ public class TFM_Util
 
                 TFM_Util.bcastMsg(ChatColor.RED + player.getName() + " has been banned for 1 minute.");
 
-                TFM_BanManager.getInstance().addIpBan(new TFM_Ban(ip, player.getName(), "AutoEject", expires, kickMessage));
-                TFM_BanManager.getInstance().addUuidBan(new TFM_Ban(player.getUniqueId(), player.getName(), "AutoEject", expires, kickMessage));
-
+                TFM_BanManager.addIpBan(new TFM_Ban(ip, player.getName(), "AutoEject", expires, kickMessage));
+                TFM_BanManager.addUuidBan(new TFM_Ban(TFM_Util.getUuid(player), player.getName(), "AutoEject", expires, kickMessage));
                 player.kickPlayer(kickMessage);
 
                 break;
@@ -490,9 +544,8 @@ public class TFM_Util
 
                 TFM_Util.bcastMsg(ChatColor.RED + player.getName() + " has been banned for 3 minutes.");
 
-                TFM_BanManager.getInstance().addIpBan(new TFM_Ban(ip, player.getName(), "AutoEject", expires, kickMessage));
-                TFM_BanManager.getInstance().addUuidBan(new TFM_Ban(player.getUniqueId(), player.getName(), "AutoEject", expires, kickMessage));
-
+                TFM_BanManager.addIpBan(new TFM_Ban(ip, player.getName(), "AutoEject", expires, kickMessage));
+                TFM_BanManager.addUuidBan(new TFM_Ban(TFM_Util.getUuid(player), player.getName(), "AutoEject", expires, kickMessage));
                 player.kickPlayer(kickMessage);
                 break;
             }
@@ -500,9 +553,9 @@ public class TFM_Util
             {
                 String[] ipAddressParts = ip.split("\\.");
 
-                TFM_BanManager.getInstance().addIpBan(new TFM_Ban(ip, player.getName(), "AutoEject", null, kickMessage));
-                TFM_BanManager.getInstance().addIpBan(new TFM_Ban(ipAddressParts[0] + "." + ipAddressParts[1] + ".*.*", player.getName(), "AutoEject", null, kickMessage));
-                TFM_BanManager.getInstance().addUuidBan(new TFM_Ban(player.getUniqueId(), player.getName(), "AutoEject", null, kickMessage));
+                TFM_BanManager.addIpBan(new TFM_Ban(ip, player.getName(), "AutoEject", null, kickMessage));
+                TFM_BanManager.addIpBan(new TFM_Ban(ipAddressParts[0] + "." + ipAddressParts[1] + ".*.*", player.getName(), "AutoEject", null, kickMessage));
+                TFM_BanManager.addUuidBan(new TFM_Ban(TFM_Util.getUuid(player), player.getName(), "AutoEject", null, kickMessage));
 
                 TFM_Util.bcastMsg(ChatColor.RED + player.getName() + " has been banned.");
 
@@ -897,7 +950,32 @@ public class TFM_Util
             }
         }
     }
+    public static void senioradminChatMessage(CommandSender sender, String message, boolean senderIsConsole)
+    {
+        String name = sender.getName() + " " + TFM_PlayerRank.fromSender(sender).getPrefix() + ChatColor.WHITE;
+        TFM_Log.info("[SENIOR-ADMIN] " + name + ": " + message);
 
+        for (Player player : Bukkit.getOnlinePlayers())
+        {
+            if (TFM_AdminList.isSuperAdmin(player))
+            {
+                player.sendMessage("[" + ChatColor.GOLD + "SENIOR-ADMIN" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + ChatColor.YELLOW + message);
+            }
+        }
+    }
+    public static void devadminChatMessage(CommandSender sender, String message, boolean senderIsConsole)
+    {
+        String name = sender.getName() + " " + TFM_PlayerRank.fromSender(sender).getPrefix() + ChatColor.WHITE;
+        TFM_Log.info("[Dev-Chat] " + name + ": " + message);
+
+        for (Player player : Bukkit.getOnlinePlayers())
+        {
+            if (!TFM_Util.DEVELOPERS.contains(sender.getName()))
+            {
+                player.sendMessage("[" + ChatColor.DARK_GREEN + "Dev-Chat" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + ChatColor.GOLD + message);
+            }
+        }
+    }
     //getField: Borrowed from WorldEdit
     @SuppressWarnings("unchecked")
     public static <T> T getField(Object from, String name)

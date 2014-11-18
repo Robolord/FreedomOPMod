@@ -3,6 +3,7 @@ package me.StevenLawson.TotalFreedomMod.Commands;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import me.StevenLawson.TotalFreedomMod.TFM_CommandBlocker;
 import me.StevenLawson.TotalFreedomMod.TFM_Log;
 import net.minecraft.util.org.apache.commons.lang3.ArrayUtils;
 import net.minecraft.util.org.apache.commons.lang3.StringUtils;
@@ -28,7 +29,7 @@ public class Command_cbtool extends TFM_Command
 
         if ("targetblock".equalsIgnoreCase(args[0]) && sender instanceof Player)
         {
-            Block targetBlock = sender_p.getTargetBlock(null, 100);
+            Block targetBlock = me.StevenLawson.TotalFreedomMod.TFM_DepreciationAggregator.getTargetBlock(sender_p, null, 100);
             playerMsg("Your target block: " + targetBlock.getLocation().toString());
             return true;
         }
@@ -43,6 +44,11 @@ public class Command_cbtool extends TFM_Command
                 matcher.appendReplacement(generatedCommand, processSubCommand(matcher.group(1)));
             }
             matcher.appendTail(generatedCommand);
+
+            if (TFM_CommandBlocker.getInstance().isCommandBlocked(commandLabel, sender))
+            {
+                return true;
+            }
 
             server.dispatchCommand(sender, generatedCommand.toString());
         }
