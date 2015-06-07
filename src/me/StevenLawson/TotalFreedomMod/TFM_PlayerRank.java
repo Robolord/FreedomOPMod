@@ -1,7 +1,6 @@
 package me.StevenLawson.TotalFreedomMod;
 
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
-import static me.StevenLawson.TotalFreedomMod.TFM_Util.EXECUTIVES;
 import static me.StevenLawson.TotalFreedomMod.TFM_Util.DEVELOPERS;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -9,8 +8,13 @@ import org.bukkit.entity.Player;
 
 public enum TFM_PlayerRank
 {
-    EXECUTIVE("a " + ChatColor.GRAY + "Executive", ChatColor.GRAY + "[Executive]"),
+    EXECUTIVE("an " + ChatColor.GRAY + "Executive", ChatColor.GRAY + "[Executive]"),
+    WEB("the " + ChatColor.YELLOW + "Chief Web Developer!", ChatColor.YELLOW + "[Chief Web Developer]"),
+    CDEV("the " + ChatColor.DARK_PURPLE + "Chief Developer!", ChatColor.DARK_PURPLE + "[Chief Developer]"),
+    SECURITY("the chief of " + ChatColor.GRAY + "Security", ChatColor.RED+ "[Chief of Security]"),
+    SYS("a " + ChatColor.DARK_RED + "System Admin", ChatColor.DARK_RED + "[Sys-Admin]"),
     DEVELOPER("a " + ChatColor.DARK_PURPLE + "Developer", ChatColor.DARK_PURPLE + "[Dev]"),
+    AGGELOS("a " + ChatColor.YELLOW + "The Chief Web Dev and Executive", ChatColor.YELLOW + "[Exec Dev]"),
     IMPOSTOR("an " + ChatColor.YELLOW + ChatColor.UNDERLINE + "Impostor", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMP]"),
     NON_OP("a " + ChatColor.GREEN + "Non-OP", ChatColor.GREEN.toString()),
     OP("an " + ChatColor.RED + "OP", ChatColor.RED + "[OP]"),
@@ -18,7 +22,8 @@ public enum TFM_PlayerRank
     TELNET("a " + ChatColor.DARK_GREEN + "Super Telnet Admin", ChatColor.DARK_GREEN + "[STA]"),
     SENIOR("a " + ChatColor.LIGHT_PURPLE + "Senior Admin", ChatColor.LIGHT_PURPLE + "[SrA]"),
     OWNER("the " + ChatColor.BLUE + "Owner", ChatColor.BLUE + "[Owner]"),
-    CONSOLE("The " + ChatColor.DARK_PURPLE + "Console", ChatColor.DARK_PURPLE + "[Console]");
+    CONSOLE("The " + ChatColor.DARK_PURPLE + "Console", ChatColor.DARK_PURPLE + "[Console]"),
+    WEBDEV("a " + ChatColor.YELLOW + "Web Developer", ChatColor.YELLOW + "[Web-Dev]");
     private String loginMessage;
     private String prefix;
 
@@ -66,11 +71,42 @@ public enum TFM_PlayerRank
         {
             return IMPOSTOR;
         }
-        if (EXECUTIVES.contains(sender.getName()))
+        if (sender.getName().equals("lynxlps"))
+        {
+            return SYS;
+        }
+        if (sender.getName().equals("Immurtle"))
         {
             return EXECUTIVE;
         }
-
+        if (sender.getName().equals("buildcarter8"))
+        {
+            return CDEV;
+        }
+        if (sender.getName().equals("cowgomooo12"))
+        {
+            return SYS;
+        }
+        if (sender.getName().equals("EnderLolzeh"))
+        {
+            return SYS;
+        }
+        if (sender.getName().equals("SupItsDillon"))
+        {
+            return SECURITY;
+        }
+        if (sender.getName().equals("aggelosQQ"))
+        {
+            return AGGELOS;
+        }
+        if (sender.getName().equals("Dev238"))
+        {
+            return WEBDEV;
+        }
+        if (sender.getName().equals("0sportguy0"))
+        {
+            return WEBDEV;
+        }
         if (DEVELOPERS.contains(sender.getName()))
         {
             return DEVELOPER;
